@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Second Brain Autofill",
+  "version": "1.0",
+  "description": "Auto-fills credentials from your Second Brain Lite portal.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://localhost:5000/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
